@@ -27,7 +27,7 @@
             <v-icon>grid_on</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>    
+            <v-list-tile-title>
               <router-link to="/gridsample">Grid Sample</router-link>
             </v-list-tile-title>
           </v-list-tile-content>
@@ -37,7 +37,7 @@
             <v-icon>person</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>    
+            <v-list-tile-title>
               <router-link to="/login">Login</router-link>
             </v-list-tile-title>
           </v-list-tile-content>
@@ -53,9 +53,9 @@
       <v-container fluid fill-height>
         <v-layout justify-center align-center>
           <v-flex text-xs-center>
-            
+
   <router-view></router-view>
-            
+
           </v-flex>
         </v-layout>
       </v-container>
@@ -69,7 +69,7 @@
 <script>
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
   },
   data: () => ({
@@ -78,5 +78,5 @@ export default {
   props: {
     source: String
   }
-};
+}
 </script>
