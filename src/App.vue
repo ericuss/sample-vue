@@ -1,38 +1,82 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
+  <v-app id="inspire">
+    <v-navigation-drawer v-model="drawer" fixed app>
+      <v-list dense>
+        <v-list-tile @click>
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <router-link to="/">Home</router-link>
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click>
+          <v-list-tile-action>
+            <v-icon>contact_mail</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>
+              <router-link to="/contact">Contact</router-link>
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click>
+          <v-list-tile-action>
+            <v-icon>grid_on</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>    
+              <router-link to="/gridsample">Grid Sample</router-link>
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click>
+          <v-list-tile-action>
+            <v-icon>person</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>    
+              <router-link to="/login">Login</router-link>
+            </v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
 
+    <v-toolbar color="indigo" dark fixed app>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-toolbar>
     <v-content>
-      <HelloWorld/>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center>
+          <v-flex text-xs-center>
+            
+  <router-view></router-view>
+            
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-content>
+    <v-footer color="indigo" app>
+      <span class="white--text">&copy; 2019</span>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
   },
-  data () {
-    return {
-      //
-    }
+  data: () => ({
+    drawer: null
+  }),
+  props: {
+    source: String
   }
-}
+};
 </script>
